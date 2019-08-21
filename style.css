@@ -1,0 +1,46 @@
+ 
+ * {
+  font-family: 'Spinnaker', sans-serif;
+  text-align: center;
+    font-size: 1.1rem;
+}
+h1 {
+  padding-top: 36px;
+    font-size: 2rem;
+}
+
+li {
+    line-height: 3rem;
+    text-decoration: none;
+    list-style: none;
+    text-transform: uppercase;
+}
+a {
+    text-decoration: none;
+    text-transform: none;
+    padding: 3px 4px;
+    font-size: 1rem;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #030303;
+    margin-left: 8px;
+}
+a:hover {
+    background-color: #393D3F;
+    transition: .3s ease;
+}
+input, button {
+    line-height: 2rem;
+    min-width: 200px;
+}
+button {
+    background-color: rgba(5, 196, 107,1.0);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2rem;
+}
+button:hover {
+    background-color: rgba(5, 196, 107,0.8);
+    transition: .3s ease;
+}
