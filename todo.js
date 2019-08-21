@@ -4,46 +4,47 @@ var buttonElement = document.querySelector('#app button');
 
 var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
-function renderTodos()
-  listElement.innerHTML = '';
+function renderTodos() {
 
-  for (todo of todos) {
-    var todoElement = document.createElement('li');
-    var todoText = document.createTextNode(todo);
+    listElement.innerHTML = '';
 
-    var linkElement = document.createElement('a');
-    linkElement.setAttribute('href', '#');
-    var pos = todos.indexOf(todo);
-    linkElement.setAttribute('onclick', 'deleteTodo(' + pos + ')');
-    var linkText = document.createTextNode('Delete');
+    for ( todo of todos) {
+        var todoElement = document.createElement('li');
+        var todoText = document.createTextNode(todo);
 
-    linkElement.appendChild(linkText);
-    todoElement.appendChild(todoText);
-    todoElement.appendChild(linkElement);
-    listElement.appendChild(todoElement);
-  }
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', '#');
+        var pos = todos.indexOf(todo);
+        linkElement.setAttribute('onclick', 'deleteTodo(' + pos + ')');
+        var linkText = document.createTextNode('Delete');
+
+        linkElement.appendChild(linkText);
+        todoElement.appendChild(todoText);
+        todoElement.appendChild(linkElement);        
+        listElement.appendChild(todoElement);
+    }
 }
 renderTodos();
 
 function addTodo() {
-  var todoText = inputElement.value;
+    var todoText = inputElement.value;
 
-  if (todoText) {
-    todos.push(todoText);
+   if(todoText) {
+   	todos.push(todoText);
     inputElement.value = '';
     renderTodos();
     saveTodo();
-  }
+	}
 }
 
 buttonElement.onclick = addTodo;
 
 function deleteTodo(pos) {
-  todos.splice(pos, 1);
-  renderTodos();
-  saveTodo();
+    todos.splice(pos, 1);
+    renderTodos();
+    saveTodo();
 }
 
-function saveTodo() {
-  localStorage.setItem('list_todos', JSON.stringify(todos));
+function saveTodo(){
+    localStorage.setItem('list_todos', JSON.stringify(todos));
 }
